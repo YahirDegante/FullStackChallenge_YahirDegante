@@ -82,7 +82,7 @@ npm start
 
 **Main file**: `src/server.js`
 
-**Port**: `3000`
+**Port**: `4000`
 
 ## Running Tests
 
@@ -107,24 +107,24 @@ The main endpoints are located in `notesController.js`:
 
 **Create a note:**
 ```bash
-curl -X POST http://localhost:3000/api/notes \
+curl -X POST http://localhost:4000/api/notes \
   -H "Content-Type: application/json" \
   -d '{"title": "My note", "content": "My note content"}'
 ```
 
 **Get all notes:**
 ```bash
-curl http://localhost:3000/api/notes
+curl http://localhost:4000/api/notes
 ```
 
 **Get specific note:**
 ```bash
-curl http://localhost:3000/api/note/[NOTE_ID]
+curl http://localhost:4000/api/note/[NOTE_ID]
 ```
 
 **Update note:**
 ```bash
-curl -X PATCH http://localhost:3000/api/note/[NOTE_ID] \
+curl -X PATCH http://localhost:4000/api/note/[NOTE_ID] \
   -H "Content-Type: application/json" \
   -d '{"title": "Updated title", "content": "Updated content"}'
 ```
@@ -141,7 +141,7 @@ curl -X PATCH http://localhost:3000/api/note/[NOTE_ID] \
 
 Once the backend is running, endpoints will be available at:
 ```
-http://localhost:3000/api
+http://localhost:4000/api
 ```
 
 For comprehensive testing, import the Postman collection from the `docs/postman/` folder.
