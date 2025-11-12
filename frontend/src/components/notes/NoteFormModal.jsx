@@ -14,13 +14,21 @@ function NoteFormModal({ isOpen, onClose, note, onNoteSaved, mode = 'create' }) 
         getButtonText,
         hasChanges,
         titleCharCount,
-        contentCharCount
+        contentCharCount,
+        setFormData,
+        setOriginalData
     } = useNoteForm(mode, note, onNoteSaved, onClose);
+
+    const handleClose = () => {
+        setFormData({ title: '', content: '' });
+        setOriginalData({ title: '', content: '' });
+        onClose();
+    };
 
     return (
         <Modal
             isOpen={isOpen}
-            onClose={onClose}
+            onClose={handleClose}
             title={mode === 'create' ? 'Crear Nueva Nota' : 'Editar Nota'}
             size="md"
         >
@@ -36,7 +44,7 @@ function NoteFormModal({ isOpen, onClose, note, onNoteSaved, mode = 'create' }) 
                 hasChanges={hasChanges}
                 titleCharCount={titleCharCount}
                 contentCharCount={contentCharCount}
-                onClose={onClose}
+                onClose={handleClose}
             />
         </Modal>
     );

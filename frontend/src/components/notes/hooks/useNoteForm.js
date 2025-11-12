@@ -100,6 +100,8 @@ export const useNoteForm = (mode, note, onNoteSaved, onClose) => {
                     content: formData.content.trim()
                 });
                 toast.success('Nota creada exitosamente');
+                setFormData({ title: '', content: '' });
+                setOriginalData({ title: '', content: '' });
             } else {
                 await notesAPI.updateNote(note.id, {
                     title: formData.title.trim(),
@@ -143,6 +145,8 @@ export const useNoteForm = (mode, note, onNoteSaved, onClose) => {
         getButtonText,
         hasChanges,
         titleCharCount: formData.title.length,
-        contentCharCount: formData.content.length
+        contentCharCount: formData.content.length,
+        setFormData,
+        setOriginalData
     };
 };
